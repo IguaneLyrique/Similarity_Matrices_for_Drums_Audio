@@ -13,6 +13,16 @@ function [shape] = colorShape(image, color, position)
 %                 colored chorus (bounding box)
 
     %% Initialization of variables
+    customColorMap = [
+        1 0 0;          % Red
+        0 0 1;          % Blue
+        0 1 0;          % Green
+        1 0.65 0;       % Orange
+        1 0.75 0.8;     % Pink
+        1 1 0;          % Yellow
+        0.5 0 0.5;      % Purple
+        0.64 0.16 0.16  % Brown
+    ];
     clone_image = zeros(length(image));
     size = length(color);
 
@@ -22,5 +32,5 @@ function [shape] = colorShape(image, color, position)
     end
     
     %% Merge 2 images
-    shape = labeloverlay(image,clone_image);
+    shape = labeloverlay(image,clone_image,'Colormap',customColorMap);
 end
